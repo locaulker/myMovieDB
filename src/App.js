@@ -1,56 +1,37 @@
 import React, { Component } from "react"
-// import logo from "./logo.svg"
+import logo from "./logo.svg"
 import "./App.css"
+import Movie from "./Movie"
 
-// Parent Component
+const movies = [
+  {
+    id: 1,
+    title: 'Star Wars'
+  },
+  {
+    id: 2,
+    title: 'Spider Man'
+  },
+  {
+    id: 3,
+    title: '36th Chamber of Shaolin'
+  },
+  {
+    id: 4,
+    title: '5 Deadly Venoms'
+  },
+]
+
+
 class App extends Component {
-  state = {
-    toggle: true
-  }
-
-  toggle = () => {
-    this.setState({
-      toggle: !this.state.toggle
-    })
-  }
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          {/* Child Component */}
-          <Welcome text="Welcome to Using Props" item="Another Example" />
-
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          {this.props.text}
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          {/* <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a> */}
+          <img src={logo} className="App-logo" alt="logo" />
         </header>
-
-        {this.state.toggle && <p>This should show and hide</p>}
-        <button onClick={this.toggle}>Show / Hide</button>
-      </div>
-    )
-  }
-}
-
-// Child Component
-class Welcome extends Component {
-  render() {
-    const { text } = this.props
-
-    return (
-      <div>
-        <h3 className="App-title">{text}</h3>
+        {movies.map(movie => <Movie key={movie.id} movie={movie} />)}
       </div>
     )
   }
