@@ -3,5 +3,6 @@
         "shaolin"
     ],
     "editor.fontWeight": "200",
-    "editor.fontSize": 13
+    "editor.fontSize": 13,
+    "eslint.run": "onSave"
 }
